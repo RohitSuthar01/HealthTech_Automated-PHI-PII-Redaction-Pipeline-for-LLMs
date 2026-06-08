@@ -1,0 +1,23 @@
+NOTE 1:
+Patient John Smith, DOB: 14/02/1985, visited on 05/06/2026.
+Phone: 9876543210. SSN: 123-45-6789.
+Address: 42 MG Road, Mumbai, Maharashtra.
+Complaints: Persistent cough and mild fever for 4 days.
+Diagnosed with viral bronchitis. Prescribed azithromycin 500mg.
+Referred to Dr. Emily Carter at Sunrise Hospital.
+
+NOTE 2:
+Rahul Verma, 28 years old, MRN: MRN-00456, admitted on 01/06/2026.
+Contact: rahul.verma@gmail.com, Mobile: 7654321098.
+Chief complaint: Chest pain radiating to left arm.
+History of hypertension. ECG showed normal sinus rhythm.
+Treated by Dr. Anil Mehta. Discharged after 2 days observation.
+
+NOTE 3:
+Name: Sarah Johnson. Age: 45. Insurance ID: INS-789012.
+Presenting with Parkinson's disease symptoms worsening.
+(Note: Do NOT remove "Parkinson's disease" - it is a condition name!)
+Home address: 15 Park Street, Delhi 110001.
+Emergency contact: Mike Johnson, 9123456780.
+Physician: Dr. Priya Nair, License No: MH-2024-7890.
+
