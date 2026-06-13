@@ -1,4 +1,4 @@
-# 🏥 HealthTech Automated PHI/PII Redaction Pipeline for LLMs
+# 🏥 **HealthTech Automated PHI/PII Redaction Pipeline for LLMs**
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
