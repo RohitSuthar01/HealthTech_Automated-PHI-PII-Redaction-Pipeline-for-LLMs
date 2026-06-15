@@ -1,0 +1,43 @@
+NOTE 1:
+Patient: John Smith
+Date of Birth: 14/02/1985
+Admitted: 05/06/2026
+Phone: +1 (555) 019-2834
+SSN: 666-29-9012
+Address: 42 MG Road, Mumbai, Maharashtra 400001
+Attending Physician: Dr. Emily Carter at Sunrise Hospital
+Notes: Patient presented with a persistent cough and mild fever for 4 days. Diagnosed with viral bronchitis. Prescribed azithromycin 500mg daily. Referred to Dr. Emily Carter.
+
+NOTE 2:
+Patient Name: Rahul Verma
+Age: 28
+Medical Record Number: MRN-998822
+Admitted: 01/06/2026
+Email: rahul.verma@outlook.com
+Mobile: 91-98765-43210
+Chief Complaint: Acute chest pain radiating to left arm. History of mild hypertension.
+Action: ECG performed, showing normal sinus rhythm. Under observation by Dr. Anil Mehta in the Cardiology Wing of Metro Care Center.
+
+NOTE 3:
+Name: Sarah Johnson
+Age: 45
+Insurance ID: INS-789012-A
+Diagnosis: Parkinson's disease symptoms worsening.
+Home Address: 15 Park Street, Delhi 110001
+Emergency Contact: Mike Johnson (Spouse) - Phone: 9123456780
+Attending Physician: Dr. Priya Nair, License No: MH-2024-7890.
+(Note: Do NOT redact Parkinson's disease - it is a clinical condition!)
+
+NOTE 4:
+Date: June 12, 2026
+Patient: Robert 'Bob' Taylor (DOB: 09-18-1972)
+IP Address of Device: 192.168.1.104
+Email: rtaylor72@yahoo.com
+Notes: Patient was connected to the telemetry monitor. Vital signs monitored continuously. No arrhythmias detected. Discharged home under care of Dr. Sarah Jenkins.
+
+NOTE 5:
+Patient: Alice Green
+Age: 62
+Date of Visit: 03/15/2026
+URL: https://clinical-portal.local/records/g-89211
+Notes: Patient visited the orthopedic clinic following a fall. Right wrist X-ray showed a hairline fracture of the distal radius. Temporary cast applied. Follow-up in 4 weeks with Dr. James Andrews.
