@@ -105,6 +105,11 @@ DATE_DD_SLASH_MM_YYYY_REGEX = (
     r"\b(?:0?[1-9]|[12]\d|3[01])/(?:0?[1-9]|1[0-2])/\d{4}\b"
 )
 
+# MM/DD/YYYY — US-style month / day / year with slashes  (e.g. 07/21/1982)
+DATE_MM_SLASH_DD_YYYY_REGEX = (
+    r"\b(?:0?[1-9]|1[0-2])/(?:0?[1-9]|[12]\d|3[01])/\d{4}\b"
+)
+
 # MM-DD-YYYY — month-day-year with dashes  (e.g. 06-05-2026)
 DATE_MM_DASH_DD_YYYY_REGEX = (
     r"\b(?:0?[1-9]|1[0-2])-(?:0?[1-9]|[12]\d|3[01])-\d{4}\b"
@@ -128,9 +133,9 @@ DATE_YYYY_DASH_MM_DD_REGEX = (
 
 # Combined date pattern (all formats above)
 DATE_REGEX = (
-    rf"(?:{DATE_DD_SLASH_MM_YYYY_REGEX}|{DATE_MM_DASH_DD_YYYY_REGEX}|"
-    rf"{DATE_DD_DASH_MM_YYYY_REGEX}|{DATE_MONTH_NAME_REGEX}|"
-    rf"{DATE_YYYY_DASH_MM_DD_REGEX})"
+    rf"(?:{DATE_DD_SLASH_MM_YYYY_REGEX}|{DATE_MM_SLASH_DD_YYYY_REGEX}|"
+    rf"{DATE_MM_DASH_DD_YYYY_REGEX}|{DATE_DD_DASH_MM_YYYY_REGEX}|"
+    rf"{DATE_MONTH_NAME_REGEX}|{DATE_YYYY_DASH_MM_DD_REGEX})"
 )
 
 # ---------------------------------------------------------------------------
