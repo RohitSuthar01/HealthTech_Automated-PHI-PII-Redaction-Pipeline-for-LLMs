@@ -87,9 +87,12 @@ This project bridges the gap between **healthcare compliance** and **AI producti
 HealthTech_Automated-PHI-PII-Redaction-Pipeline-for-LLMs/
 │
 ├── regex/                  # Rule-based regex PHI scanner          (Mantra)
+│   ├── __init__.py         #   Package exports (scan_and_redact)
 │   ├── regex_redact.py     #   Pattern detection + redaction engine
-│   ├── redirect.py         #   Presidio prototype script
-│   └── sample_notes.txt    #   Sample notes for manual testing
+│   ├── note_loader.py      #   Load NOTE_001…NOTE_015 from sample_notes.txt
+│   ├── batch_scan.py       #   Batch-scan all sample notes + report
+│   ├── redirect.py         #   Optional Presidio comparison script
+│   └── sample_notes.txt    #   15 synthetic clinical notes for testing
 │
 ├── nlp/                    # NLP entity detection                  (Tirth)
 │   └── presidio_scanner.py #   Presidio + spaCy NER pipeline
@@ -188,6 +191,13 @@ The regex scanner works with zero external dependencies — great for a quick de
 
 ```bash
 python regex/regex_redact.py
+```
+
+Batch-scan all 15 sample notes:
+
+```bash
+python regex/batch_scan.py
+python regex/batch_scan.py --verbose
 ```
 
 Expected output:

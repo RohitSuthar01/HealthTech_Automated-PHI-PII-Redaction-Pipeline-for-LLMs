@@ -1,3 +1,5 @@
+# Optional Presidio comparison script (requires presidio-analyzer + presidio-anonymizer).
+# For the production regex scanner, use: python regex/regex_redact.py
 # redact.py
 # YOUR FIRST PHI REDACTION SCRIPT! 🎉
 # What this does: Takes a patient note and hides all private info
