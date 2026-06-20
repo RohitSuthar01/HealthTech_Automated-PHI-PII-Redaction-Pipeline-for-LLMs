@@ -1,0 +1,104 @@
+NOTE_001:
+Patient Rahul Sharma, DOB: 14/02/1985, arrived on 05/06/2026 for persistent cough.
+MRN: MRN-00234. Contact: 9876543210 and backup +91-98765-43210.
+Email: rahul.sharma@gmail.com. Aadhaar: 1234 5678 9012.
+Address: 42 MG Road, Mumbai 400001. IP at intake terminal: 192.168.1.1.
+Seen by Dr. Emily Carter and referred to Dr. Arjun Mehta for follow-up on June 9 2026.
+
+NOTE_002:
+Patient: Sarah Johnson, DOB 1989-11-23, seen again on 06-14-2026 for migraine review.
+US phone: (312) 555-7812, alternate: 312-555-9910, email sarah.johnson@northvalley.org.
+SSN: 421-66-9034, MRN: MRN-88321.
+Home: 1187 W Pine Ave, Chicago, IL 60614-2210. Clinic portal: https://northvalleyclinic.org/followup.
+Evaluated by Dr. Michael Brown; patient Sarah Johnson requested tele-visit on 06/20/2026.
+
+NOTE_003:
+Name: Vikram Iyer, first visit date 03-07-2026, review date 2026-07-15.
+Complaint: resting tremor and rigidity suggestive of Parkinson's disease progression.
+Mobile: +91 91234 56789, emergency contact: 9123456789.
+Email: vikram.iyer@medmail.in, MRN: MRN-10098, Aadhaar 987654321234.
+Address: 9 Lake View Road, Bengaluru 560034, referred by Dr. Nisha Rao.
+
+NOTE_004:
+Patient Emily Turner presented on March 12 2026 and again on 03/19/2026 for memory screening.
+History notable for Alzheimer's disease in family; condition name should remain unredacted.
+Contact: emily.turner@westbrookhealth.com, Phone: 646-555-3819.
+SSN: 239-40-7711. MRN: MRN-55007.
+Residence: 75 Brook Lane, Newark, NJ 07102. Access link: www.westbrookhealth.com/patient-portal.
+
+NOTE_005:
+Patient Abdul Khan, DOB: 22/08/1978, evaluated in ER on 2026-06-02 and discharged 2026-06-04.
+Phone recorded as +91-99887-66554 and office line 9988766554.
+Email: abdul.khan@citycare.in, Aadhaar: 4567 1234 8890, MRN: MRN-32011.
+Address: 12 Residency Road, Jaipur 302001, triage workstation IP 10.14.22.9.
+Primary consultant Dr. Ritu Sengar; referred by Dr. Harsh Vardhan for cardiac opinion.
+
+NOTE_006:
+Patient Laura Mitchell came on 04-09-2026 with acute sinusitis and follow-up on April 16 2026.
+Cell: (415) 555-2840, spouse contact: 415-555-0028.
+Email: l.mitchell@bayareahealth.net, SSN 533-18-6245, MRN: MRN-44590.
+Address: 230 King St, San Francisco, CA 94107. Billing ZIP confirmed as 94107-3119.
+Referred by Dr. Alan Reed to Dr. Susan Park for ENT evaluation.
+
+NOTE_007:
+Patient Neha Desai, DOB 11/01/1993, was admitted on 01/07/2026 and reviewed on 05/07/2026.
+Chief concern: episodic confusion; no evidence of Alzheimer's disease at present.
+Contact numbers: +91 98765 12345 and 9876512345, email neha.desai@apolloexample.com.
+MRN: MRN-77880, Aadhaar 2345 6789 1201.
+Address: 4 Riverfront Apartments, Ahmedabad 380009, portal www.apolloexample.com/cases.
+
+NOTE_008:
+Patient Robert Hayes visited on 2026-05-10 with uncontrolled diabetes and neuropathic pain.
+US phone: 202-555-0144, secondary (202) 555-2711, email robert.hayes@metrocare.us.
+SSN: 667-24-8931, MRN: MRN-91002.
+Address: 890 Maple Drive, Washington, DC 20009. Remote consult from IP 172.16.44.101.
+Attending physician Dr. Priya Nair; patient referred by Dr. George Allen.
+
+NOTE_009:
+Patient Kavya Menon attended dermatology clinic on June 5 2026; biopsy review planned 12-06-2026.
+Phone: 9765432109, emergency number +91-97654-32109.
+Email kavya.menon@skinwell.in, Aadhaar 1122 3344 5566, MRN MRN-66543.
+Current address: 88 Green Park, Kochi 682020.
+Seen by Dr. Meera Das; Parkinson's disease ruled out after neurological exam.
+
+NOTE_010:
+Patient Jacob Miller, DOB: 07/21/1982, follow-up dates 07-28-2026 and 2026-08-11.
+Contacts: 718-555-6620 and jacob.miller@eastbridge.org.
+SSN 314-55-9002, MRN: MRN-77210.
+Address: 410 East 62nd Street, New York, NY 10065-4120. Visit link: https://eastbridge.org/results.
+Reviewed by Dr. Helena Cruz and referred by Dr. Omar Patel for stress testing.
+
+NOTE_011:
+Patient Isha Gupta reported fever and myalgia on 09/06/2026; reassessment set for 14/06/2026.
+Phone 9012345678, alt +91 90123 45678, email isha.gupta@caremail.in.
+Aadhaar: 7788 9900 1122, MRN: MRN-24567.
+Address: 17 Civil Lines, Lucknow 226001. Local kiosk IP: 192.168.200.45.
+Consulted by Dr. Rohit Sen; same patient Isha Gupta advised hydration and rest.
+
+NOTE_012:
+Patient Matthew Clark arrived at urgent care on February 3 2026 and follow-up on 02/10/2026.
+Phone: (503) 555-1299, work line 503-555-7781, email m.clark@rainierclinic.com.
+SSN: 808-33-4501, MRN: MRN-60991.
+Home address: 62 Alder St, Portland, OR 97205. Patient portal: www.rainierclinic.com/login.
+Seen by Dr. Elena Moore; referred by Dr. Victor James for pulmonary function testing.
+
+NOTE_013:
+Patient Harpreet Singh, DOB 1991-03-18, was evaluated on 18-03-2026 for chronic back pain.
+Primary contact +91-88990-11223, alternate 8899011223, email harpreet.singh@spinecare.in.
+Aadhaar 6655 4433 2211, MRN: MRN-34220.
+Address: 55 Sector 17, Chandigarh 160017, website https://spinecare.in/appointments.
+Attending doctor Dr. Kavita Malhotra; referred by Dr. S. Banerjee.
+
+NOTE_014:
+Patient Olivia Reed came on 2026-09-01 with panic episodes and repeat visit on September 8 2026.
+US phone formats captured: 404-555-8001 and (404) 555-3322.
+Email: o.reed@atlanticmindhealth.com, SSN 921-77-6108, MRN MRN-51444.
+Address: 16 Peachtree Blvd, Atlanta, GA 30309. Device IP 203.0.113.19.
+Examined by Dr. Ian Foster; Alzheimer's disease was discussed only as family history.
+
+NOTE_015:
+Patient Farah Ali presented on 13/07/2026 with abdominal pain and review date 07-20-2026.
+Contacts: 9345678901, +91 93456 78901, email farah.ali@metrohospital.in.
+Aadhaar: 9900 7766 5544, MRN: MRN-80818.
+Address: 101 Palm Residency, Pune 411001, support site www.metrohospital.in/help.
+Managed by Dr. Rhea Kapoor; patient Farah Ali referred by Dr. Daniel Ross.
