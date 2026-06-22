@@ -9,7 +9,7 @@ def test_redis_connection():
     Day 2 Task: Verify Python can connect to the local Redis server.
     """
     print("--- Starting Redis Connection Test ---")
-    
+
     # Initialize the client. This connects to localhost:6379 by default.
     # Ensure your local Redis server is running!
     client = RedisClient()
