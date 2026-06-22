@@ -1,0 +1,265 @@
+Reading sample notes from C:\Users\Tirth Patel\OneDrive\Onedrive-Desktop\Infotact\HealthTech_Automated-PHI-PII-Redaction-Pipeline-for-LLMs\regex\sample_notes.txt...
+
+Testing combined spaCy + Presidio engine on the first 10 notes:
+
+====================================================================================================
+NOTE: NOTE_001
+----------------------------------------------------------------------------------------------------
+Original Text:
+Patient Rahul Sharma, DOB: 14/02/1985, arrived on 05/06/2026 for persistent cough.
+MRN: MRN-00234. Contact: 9876543210 and backup +91-98765-43210.
+Email: rahul.sharma@gmail.com. Aadhaar: 1234 5678 9012.
+Address: 42 MG Road, Mumbai 400001. IP at intake terminal: 192.168.1.1.
+Seen by Dr. Emily Carter and referred to Dr. Arjun Mehta for follow-up on June 9 2026.
+----------------------------------------------------------------------------------------------------
+Detected Word             | Entity Type        | Confidence | Detection Source              
+----------------------------------------------------------------------------------------------------
+Rahul Sharma              | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+14/02/1985                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+05/06/2026                | DATE_TIME          | 60% | Presidio                      
+9876543210                | UK_NHS             | 100% | Presidio                      
++91-98765-43210           | PHONE_NUMBER       | 40% | Presidio                      
+rahul.sharma@gmail.com    | EMAIL_ADDRESS      | 100% | Presidio                      
+1234 5678 9012            | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+MG Road                   | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+Mumbai                    | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+400001                    | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+192.168.1.1               | IP_ADDRESS         | 95% | Presidio                      
+Emily Carter              | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+Arjun Mehta               | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+June 9 2026               | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+====================================================================================================
+
+====================================================================================================
+NOTE: NOTE_002
+----------------------------------------------------------------------------------------------------
+Original Text:
+Patient: Sarah Johnson, DOB 1989-11-23, seen again on 06-14-2026 for migraine review.
+US phone: (312) 555-7812, alternate: 312-555-9910, email sarah.johnson@northvalley.org.
+SSN: 421-66-9034, MRN: MRN-88321.
+Home: 1187 W Pine Ave, Chicago, IL 60614-2210. Clinic portal: https://northvalleyclinic.org/followup.
+Evaluated by Dr. Michael Brown; patient Sarah Johnson requested tele-visit on 06/20/2026.
+----------------------------------------------------------------------------------------------------
+Detected Word             | Entity Type        | Confidence | Detection Source              
+----------------------------------------------------------------------------------------------------
+Sarah Johnson             | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+1989-11-23                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+06-14-2026                | DATE_TIME          | 60% | Presidio                      
+US                        | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+(312) 555-7812            | PHONE_NUMBER       | 75% | Presidio                      
+312-555-9910              | PHONE_NUMBER       | 75% | Presidio                      
+sarah.johnson@northvalley.org | EMAIL_ADDRESS      | 100% | Presidio                      
+421-66-9034               | US_SSN             | 85% | Presidio                      
+W Pine Ave                | ORGANIZATION       | 100% | Presidio+spaCy (Confirmed)    
+Chicago                   | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+IL 60614-2210             | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+https://northvalleyclinic.org/followup. | URL                | 60% | Presidio                      
+Michael Brown             | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+Sarah Johnson             | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+06/20/2026                | DATE_TIME          | 60% | Presidio                      
+====================================================================================================
+
+====================================================================================================
+NOTE: NOTE_003
+----------------------------------------------------------------------------------------------------
+Original Text:
+Name: Vikram Iyer, first visit date 03-07-2026, review date 2026-07-15.
+Complaint: resting tremor and rigidity suggestive of Parkinson's disease progression.
+Mobile: +91 91234 56789, emergency contact: 9123456789.
+Email: vikram.iyer@medmail.in, MRN: MRN-10098, Aadhaar 987654321234.
+Address: 9 Lake View Road, Bengaluru 560034, referred by Dr. Nisha Rao.
+----------------------------------------------------------------------------------------------------
+Detected Word             | Entity Type        | Confidence | Detection Source              
+----------------------------------------------------------------------------------------------------
+Vikram Iyer               | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+03-07-2026                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+2026-07-15                | DATE_TIME          | 95% | Presidio                      
++91 91234 56789           | PHONE_NUMBER       | 75% | Presidio                      
+9123456789                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+vikram.iyer@medmail.in    | EMAIL_ADDRESS      | 100% | Presidio                      
+MRN-10098                 | ORGANIZATION       | 100% | Presidio+spaCy (Confirmed)    
+987654321234              | US_BANK_NUMBER     | 5% | Presidio                      
+560034                    | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+Nisha Rao                 | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+====================================================================================================
+
+====================================================================================================
+NOTE: NOTE_004
+----------------------------------------------------------------------------------------------------
+Original Text:
+Patient Emily Turner presented on March 12 2026 and again on 03/19/2026 for memory screening.
+History notable for Alzheimer's disease in family; condition name should remain unredacted.
+Contact: emily.turner@westbrookhealth.com, Phone: 646-555-3819.
+SSN: 239-40-7711. MRN: MRN-55007.
+Residence: 75 Brook Lane, Newark, NJ 07102. Access link: www.westbrookhealth.com/patient-portal.
+----------------------------------------------------------------------------------------------------
+Detected Word             | Entity Type        | Confidence | Detection Source              
+----------------------------------------------------------------------------------------------------
+Emily Turner              | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+March 12 2026             | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+03/19/2026                | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+emily.turner@westbrookhealth.com | EMAIL_ADDRESS      | 100% | Presidio                      
+646-555-3819              | PHONE_NUMBER       | 75% | Presidio                      
+239-40-7711               | US_SSN             | 85% | Presidio                      
+Newark                    | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+NJ                        | ORGANIZATION       | 100% | Presidio+spaCy (Confirmed)    
+www.westbrookhealth.com/patient-portal. | URL                | 85% | Presidio                      
+====================================================================================================
+
+====================================================================================================
+NOTE: NOTE_005
+----------------------------------------------------------------------------------------------------
+Original Text:
+Patient Abdul Khan, DOB: 22/08/1978, evaluated in ER on 2026-06-02 and discharged 2026-06-04.
+Phone recorded as +91-99887-66554 and office line 9988766554.
+Email: abdul.khan@citycare.in, Aadhaar: 4567 1234 8890, MRN: MRN-32011.
+Address: 12 Residency Road, Jaipur 302001, triage workstation IP 10.14.22.9.
+Primary consultant Dr. Ritu Sengar; referred by Dr. Harsh Vardhan for cardiac opinion.
+----------------------------------------------------------------------------------------------------
+Detected Word             | Entity Type        | Confidence | Detection Source              
+----------------------------------------------------------------------------------------------------
+Abdul Khan                | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+22/08/1978                | DATE_TIME          | 60% | Presidio                      
+ER                        | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+2026-06-02                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+2026-06-04                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
++91-99887-66554           | PHONE_NUMBER       | 75% | Presidio                      
+9988766554                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+abdul.khan@citycare.in    | EMAIL_ADDRESS      | 100% | Presidio                      
+4567 1234 8890            | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+MRN-32011                 | ORGANIZATION       | 100% | Presidio+spaCy (Confirmed)    
+302001                    | US_DRIVER_LICENSE  | 1% | Presidio                      
+10.14.22.9                | IP_ADDRESS         | 95% | Presidio                      
+Ritu Sengar               | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+Harsh Vardhan             | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+====================================================================================================
+
+====================================================================================================
+NOTE: NOTE_006
+----------------------------------------------------------------------------------------------------
+Original Text:
+Patient Laura Mitchell came on 04-09-2026 with acute sinusitis and follow-up on April 16 2026.
+Cell: (415) 555-2840, spouse contact: 415-555-0028.
+Email: l.mitchell@bayareahealth.net, SSN 533-18-6245, MRN: MRN-44590.
+Address: 230 King St, San Francisco, CA 94107. Billing ZIP confirmed as 94107-3119.
+Referred by Dr. Alan Reed to Dr. Susan Park for ENT evaluation.
+----------------------------------------------------------------------------------------------------
+Detected Word             | Entity Type        | Confidence | Detection Source              
+----------------------------------------------------------------------------------------------------
+Laura Mitchell            | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+04-09-2026                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+April 16 2026             | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+(415) 555-2840            | PHONE_NUMBER       | 75% | Presidio                      
+415-555-0028              | PHONE_NUMBER       | 40% | Presidio                      
+l.mitchell@bayareahealth.net | EMAIL_ADDRESS      | 100% | Presidio                      
+533-18-6245               | US_SSN             | 85% | Presidio                      
+San Francisco             | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+CA 94107                  | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+94107-3119                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+Alan Reed                 | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+Susan Park                | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+ENT                       | ORGANIZATION       | 100% | Presidio+spaCy (Confirmed)    
+====================================================================================================
+
+====================================================================================================
+NOTE: NOTE_007
+----------------------------------------------------------------------------------------------------
+Original Text:
+Patient Neha Desai, DOB 11/01/1993, was admitted on 01/07/2026 and reviewed on 05/07/2026.
+Chief concern: episodic confusion; no evidence of Alzheimer's disease at present.
+Contact numbers: +91 98765 12345 and 9876512345, email neha.desai@apolloexample.com.
+MRN: MRN-77880, Aadhaar 2345 6789 1201.
+Address: 4 Riverfront Apartments, Ahmedabad 380009, portal www.apolloexample.com/cases.
+----------------------------------------------------------------------------------------------------
+Detected Word             | Entity Type        | Confidence | Detection Source              
+----------------------------------------------------------------------------------------------------
+Neha Desai                | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+11/01/1993                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+01/07/2026                | DATE_TIME          | 60% | Presidio                      
+05/07/2026                | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
++91 98765 12345           | PHONE_NUMBER       | 75% | Presidio                      
+9876512345                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+neha.desai@apolloexample.com | EMAIL_ADDRESS      | 100% | Presidio                      
+6789 1201                 | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+380009                    | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+www.apolloexample.com/cases. | URL                | 50% | Presidio                      
+====================================================================================================
+
+====================================================================================================
+NOTE: NOTE_008
+----------------------------------------------------------------------------------------------------
+Original Text:
+Patient Robert Hayes visited on 2026-05-10 with uncontrolled diabetes and neuropathic pain.
+US phone: 202-555-0144, secondary (202) 555-2711, email robert.hayes@metrocare.us.
+SSN: 667-24-8931, MRN: MRN-91002.
+Address: 890 Maple Drive, Washington, DC 20009. Remote consult from IP 172.16.44.101.
+Attending physician Dr. Priya Nair; patient referred by Dr. George Allen.
+----------------------------------------------------------------------------------------------------
+Detected Word             | Entity Type        | Confidence | Detection Source              
+----------------------------------------------------------------------------------------------------
+Robert Hayes              | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+2026-05-10                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+US                        | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+202-555-0144              | PHONE_NUMBER       | 75% | Presidio                      
+(202) 555-2711            | PHONE_NUMBER       | 75% | Presidio                      
+robert.hayes@metrocare.us | EMAIL_ADDRESS      | 100% | Presidio                      
+667-24-8931               | US_SSN             | 85% | Presidio                      
+Washington                | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+20009                     | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+172.16.44.101             | IP_ADDRESS         | 95% | Presidio                      
+Priya Nair                | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+George Allen              | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+====================================================================================================
+
+====================================================================================================
+NOTE: NOTE_009
+----------------------------------------------------------------------------------------------------
+Original Text:
+Patient Kavya Menon attended dermatology clinic on June 5 2026; biopsy review planned 12-06-2026.
+Phone: 9765432109, emergency number +91-97654-32109.
+Email kavya.menon@skinwell.in, Aadhaar 1122 3344 5566, MRN MRN-66543.
+Current address: 88 Green Park, Kochi 682020.
+Seen by Dr. Meera Das; Parkinson's disease ruled out after neurological exam.
+----------------------------------------------------------------------------------------------------
+Detected Word             | Entity Type        | Confidence | Detection Source              
+----------------------------------------------------------------------------------------------------
+Kavya Menon               | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+June 5 2026               | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+12-06-2026                | DATE_TIME          | 60% | Presidio                      
+9765432109                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
++91-97654-32109           | PHONE_NUMBER       | 75% | Presidio                      
+kavya.menon@skinwell.in   | EMAIL_ADDRESS      | 100% | Presidio                      
+1122 3344 5566            | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+MRN MRN-66543             | ORGANIZATION       | 100% | Presidio+spaCy (Confirmed)    
+Green Park                | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+Kochi 682020              | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+Meera Das                 | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+====================================================================================================
+
+====================================================================================================
+NOTE: NOTE_010
+----------------------------------------------------------------------------------------------------
+Original Text:
+Patient Jacob Miller, DOB: 07/21/1982, follow-up dates 07-28-2026 and 2026-08-11.
+Contacts: 718-555-6620 and jacob.miller@eastbridge.org.
+SSN 314-55-9002, MRN: MRN-77210.
+Address: 410 East 62nd Street, New York, NY 10065-4120. Visit link: https://eastbridge.org/results.
+Reviewed by Dr. Helena Cruz and referred by Dr. Omar Patel for stress testing.
+----------------------------------------------------------------------------------------------------
+Detected Word             | Entity Type        | Confidence | Detection Source              
+----------------------------------------------------------------------------------------------------
+Jacob Miller              | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+07/21/1982                | DATE_TIME          | 60% | Presidio                      
+07-28-2026                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+2026-08-11                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+718-555-6620              | PHONE_NUMBER       | 40% | Presidio                      
+jacob.miller@eastbridge.org | EMAIL_ADDRESS      | 100% | Presidio                      
+314-55-9002               | US_SSN             | 85% | Presidio                      
+Street                    | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+New York                  | LOCATION           | 100% | Presidio+spaCy (Confirmed)    
+10065-4120                | DATE_TIME          | 100% | Presidio+spaCy (Confirmed)    
+https://eastbridge.org/results. | URL                | 95% | Presidio                      
+Helena Cruz               | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+Omar Patel                | PERSON             | 100% | Presidio+spaCy (Confirmed)    
+====================================================================================================
+
