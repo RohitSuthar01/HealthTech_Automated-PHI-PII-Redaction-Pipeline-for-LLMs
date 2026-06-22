@@ -8,8 +8,8 @@ from pathlib import Path
 
 import pytest
 
-from regex.note_loader import load_sample_notes
-from regex.regex_redact import (
+from regex_pipeline.note_loader import load_sample_notes
+from regex_pipeline.regex_redact import (
     REDACTION_LABELS,
     detect_dates,
     detect_emails,
@@ -20,7 +20,7 @@ from regex.regex_redact import (
     scan_and_redact,
 )
 
-SAMPLE_NOTES_PATH = Path(__file__).resolve().parent.parent / "regex" / "sample_notes.txt"
+SAMPLE_NOTES_PATH = Path(__file__).resolve().parent.parent / "regex_pipeline" / "sample_notes.txt"
 
 
 @pytest.fixture
