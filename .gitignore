@@ -11,3 +11,9 @@ __pycache__/
 .venv/
 venv/
 ENV/
+
+# Secrets and environment configs
+.env
+.env.*
+backend/.env
+backend/.env.*
