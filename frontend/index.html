@@ -3,282 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HealthTech PHI Redaction  Proxy</title>
+  <title>HealthTech PHI Redaction Proxy</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css" />
 </head>
 <body> 
   <div class="app">
+    <!-- Sidebar component -->
+    <app-sidebar></app-sidebar>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="brand">
-        <i class="ti ti-shield-lock"></i>
-        <span>PHI Redaction Proxy</span>
-      </div>
-      <nav class="nav">
-        <a href="#" class="nav-item active" data-view="proxy">
-          <i class="ti ti-message-2"></i> New note
-        </a>
-        <a href="#" class="nav-item" data-view="pipeline">
-          <i class="ti ti-route"></i> Pipeline
-        </a>
-        <a href="#" class="nav-item" data-view="vault">
-          <i class="ti ti-lock"></i> Vault sessions
-        </a>
-        <a href="#" class="nav-item" data-view="logs">
-          <i class="ti ti-list-details"></i> Audit log
-        </a>
-        <a href="#" class="nav-item" data-view="settings">
-          <i class="ti ti-settings"></i> Settings
-        </a>
-      </nav>
-      <div class="sidebar-footer">
-        <div class="status-pill">
-          <span class="dot dot-green"></span> Vault: connected
-        </div>
-        <div class="status-pill">
-          <span class="dot dot-green"></span> Engine: ready
-        </div>
-      </div>
-    </aside>
-
-    <!-- Main content -->
+    <!-- Main content viewports -->
     <main class="main">
+      <!-- Login View -->
+      <view-login id="view-login" class="view active"></view-login>
 
-      <!-- ===================== PROXY VIEW ===================== -->
-      <section id="view-proxy" class="view active">
-        <header class="view-header">
-          <div>
-            <h1>Clinical note proxy</h1>
-            <p class="subtitle">Submit a note. PHI never leaves this boundary.</p>
-          </div>
-          <div class="boundary-badge">
-            <i class="ti ti-shield-check"></i> Org control boundary
-          </div>
-        </header>
+      <!-- Proxy View -->
+      <view-proxy id="view-proxy" class="view"></view-proxy>
 
-        <div class="proxy-grid">
+      <!-- Pipeline View -->
+      <view-pipeline id="view-pipeline" class="view"></view-pipeline>
 
-          <!-- Input -->
-          <div class="card">
-            <div class="card-header">
-              <h3><i class="ti ti-file-text"></i> Original note (doctor input)</h3>
-              <span class="tag tag-coral">Contains PHI</span>
-            </div>
-            <textarea id="input-note" rows="10" placeholder="Paste or type the clinical note here...">Patient Rahul Sharma, DOB 14/03/1985, MRN: 4582193, presented on 12/06/2026 with persistent cough and fever (101.2 F). Contact: rahul.sharma@gmail.com, +91 98765 43210. Address: 22 MG Road, Jodhpur. Dr. Anita Verma recommends a chest X-ray and a 5-day course of azithromycin. Aadhaar 1234 5678 9012.</textarea>
-            <div class="card-actions">
-              <button id="btn-redact" class="btn btn-primary">
-                <i class="ti ti-scan"></i> Run redaction
-              </button>
-              <button id="btn-clear" class="btn btn-ghost">
-                <i class="ti ti-trash"></i> Clear
-              </button>
-            </div>
-          </div>
+      <!-- Vault View -->
+      <view-vault id="view-vault" class="view"></view-vault>
 
-          <!-- Redacted -->
-          <div class="card">
-            <div class="card-header">
-              <h3><i class="ti ti-eraser"></i> Redacted (sent to external AI)</h3>
-              <span class="tag tag-teal">PHI removed</span>
-            </div>
-            <div id="output-redacted" class="output-box placeholder">
-              Run redaction to see the de-identified version of this note.
-            </div>
-            <div class="card-actions">
-              <button id="btn-send-ai" class="btn btn-primary" disabled>
-                <i class="ti ti-sparkles"></i> Send to AI assistant
-              </button>
-            </div>
-          </div>
+      <!-- Audit Logs View -->
+      <view-logs id="view-logs" class="view"></view-logs>
 
-          <!-- Token map -->
-          <div class="card">
-            <div class="card-header">
-              <h3><i class="ti ti-key"></i> Vault token map</h3>
-              <span class="tag tag-gray">Redis (TTL 30 min)</span>
-            </div>
-            <div id="token-map" class="token-map placeholder">
-              No active session. Token mappings will appear here after redaction.
-            </div>
-          </div>
-
-          <!-- AI response -->
-          <div class="card">
-            <div class="card-header">
-              <h3><i class="ti ti-robot"></i> AI response (restored)</h3>
-              <span class="tag tag-purple">Identities restored</span>
-            </div>
-            <div id="output-final" class="output-box placeholder">
-              The AI's response, with patient identity restored, will appear here.
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ===================== PIPELINE VIEW ===================== -->
-      <section id="view-pipeline" class="view">
-        <header class="view-header">
-          <div>
-            <h1>Pipeline overview</h1>
-            <p class="subtitle">How a note moves through the redaction proxy</p>
-          </div>
-        </header>
-
-        <div class="pipeline">
-          <div class="pipeline-step">
-            <div class="step-icon c-gray"><i class="ti ti-stethoscope"></i></div>
-            <div class="step-body">
-              <h4>1. Doctor submits note</h4>
-              <p>Clinical note sent to the internal proxy API. Never leaves the org boundary unredacted.</p>
-            </div>
-          </div>
-          <div class="pipeline-arrow"><i class="ti ti-arrow-down"></i></div>
-
-          <div class="pipeline-step">
-            <div class="step-icon c-coral"><i class="ti ti-scan"></i></div>
-            <div class="step-body">
-              <h4>2. Redaction engine</h4>
-              <p>Regex rules + NLP entity detection run in parallel to catch names, dates, MRNs, contact details, addresses.</p>
-            </div>
-          </div>
-          <div class="pipeline-arrow"><i class="ti ti-arrow-down"></i></div>
-
-          <div class="pipeline-step">
-            <div class="step-icon c-amber"><i class="ti ti-lock"></i></div>
-            <div class="step-body">
-              <h4>3. Vault stores token map</h4>
-              <p>"Patient A" ↔ "Rahul Sharma" stored securely in Redis with a session TTL.</p>
-            </div>
-          </div>
-          <div class="pipeline-arrow"><i class="ti ti-arrow-down"></i></div>
-
-          <div class="pipeline-step">
-            <div class="step-icon c-teal"><i class="ti ti-cloud-upload"></i></div>
-            <div class="step-body">
-              <h4>4. Clean text sent to external AI</h4>
-              <p>No real names, dates, or identifiers leave the system. Only pseudonymized text is sent.</p>
-            </div>
-          </div>
-          <div class="pipeline-arrow"><i class="ti ti-arrow-down"></i></div>
-
-          <div class="pipeline-step">
-            <div class="step-icon c-teal"><i class="ti ti-message-reply"></i></div>
-            <div class="step-body">
-              <h4>5. AI responds with pseudonyms</h4>
-              <p>The external model's response references "Patient A" and other tokens only.</p>
-            </div>
-          </div>
-          <div class="pipeline-arrow"><i class="ti ti-arrow-down"></i></div>
-
-          <div class="pipeline-step">
-            <div class="step-icon c-purple"><i class="ti ti-replace"></i></div>
-            <div class="step-body">
-              <h4>6. Vault restores identities</h4>
-              <p>Pseudonyms swapped back to real patient details before the result reaches the doctor.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===================== VAULT VIEW ===================== -->
-      <section id="view-vault" class="view">
-        <header class="view-header">
-          <div>
-            <h1>Vault sessions</h1>
-            <p class="subtitle">Active token maps stored in Redis</p>
-          </div>
-        </header>
-
-        <div class="metric-grid">
-          <div class="metric-card">
-            <span class="metric-label">Active sessions</span>
-            <span class="metric-value" id="metric-sessions">0</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-label">Tokens stored</span>
-            <span class="metric-value" id="metric-tokens">0</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-label">Session TTL</span>
-            <span class="metric-value">30 min</span>
-          </div>
-        </div>
-
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Session ID</th>
-              <th>Tokens</th>
-              <th>Created</th>
-              <th>Expires in</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="vault-table-body">
-            <tr>
-              <td colspan="5" class="empty-row">No sessions yet. Run a redaction to create one.</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <!-- ===================== AUDIT LOG VIEW ===================== -->
-      <section id="view-logs" class="view">
-        <header class="view-header">
-          <div>
-            <h1>Audit log</h1>
-            <p class="subtitle">Every redaction and restoration event, for compliance review</p>
-          </div>
-        </header>
-
-        <div id="audit-log" class="audit-log">
-          <p class="empty-row">No events yet.</p>
-        </div>
-      </section>
-
-      <!-- ===================== SETTINGS VIEW ===================== -->
-      <section id="view-settings" class="view">
-        <header class="view-header">
-          <div>
-            <h1>Settings</h1>
-            <p class="subtitle">Configure detection rules and proxy behaviour</p>
-          </div>
-        </header>
-
-        <div class="card settings-card">
-          <h3>Detection categories</h3>
-          <div class="toggle-row">
-            <label class="toggle"><input type="checkbox" checked disabled /><span>Names</span></label>
-            <label class="toggle"><input type="checkbox" checked disabled /><span>Dates</span></label>
-            <label class="toggle"><input type="checkbox" checked disabled /><span>Phone numbers</span></label>
-            <label class="toggle"><input type="checkbox" checked disabled /><span>Emails</span></label>
-            <label class="toggle"><input type="checkbox" checked disabled /><span>MRN / patient IDs</span></label>
-            <label class="toggle"><input type="checkbox" checked disabled /><span>Addresses</span></label>
-            <label class="toggle"><input type="checkbox" checked disabled /><span>Aadhaar / SSN</span></label>
-          </div>
-          <p class="note">These map directly to the regex + NLP rules implemented in <code>redaction_engine.py</code>. Toggles are illustrative for this demo build.</p>
-        </div>
-
-        <div class="card settings-card">
-          <h3>Vault</h3>
-          <div class="form-row">
-            <label>Redis URL</label>
-            <input type="text" value="redis://localhost:6379/0" disabled />
-          </div>
-          <div class="form-row">
-            <label>Token TTL (seconds)</label>
-            <input type="text" value="1800" disabled />
-          </div>
-        </div>
-      </section>
-
+      <!-- Settings View -->
+      <view-settings id="view-settings" class="view"></view-settings>
     </main>
   </div>
 
+  <!-- Components -->
+  <script src="js/components/app-sidebar.js"></script>
+  <script src="js/components/view-login.js"></script>
+  <script src="js/components/view-proxy.js"></script>
+  <script src="js/components/view-pipeline.js"></script>
+  <script src="js/components/view-vault.js"></script>
+  <script src="js/components/view-logs.js"></script>
+  <script src="js/components/view-settings.js"></script>
+
+  <!-- Core Pipeline logic -->
   <script src="js/redaction.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

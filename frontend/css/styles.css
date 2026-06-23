@@ -117,6 +117,80 @@ body {
   border-top: 0.5px solid var(--border);
 }
 
+/* Clinician User Profile Card */
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
+  margin-top: auto; /* Pushes it to bottom above footer pills */
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.sidebar-user:hover {
+  background: var(--teal-bg);
+  border-color: var(--teal);
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--teal-bg);
+  color: var(--teal-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  object-fit: cover;
+  transition: all 0.2s ease;
+}
+
+.sidebar-user:hover .user-avatar {
+  background: var(--surface);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-role {
+  display: flex;
+  align-items: center;
+}
+
+.badge-role {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--teal-text);
+  background: var(--teal-bg);
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 0.5px solid rgba(8, 80, 65, 0.25);
+  transition: all 0.2s ease;
+}
+
+.sidebar-user:hover .badge-role {
+  background: var(--surface);
+}
+
 .status-pill {
   display: flex;
   align-items: center;
@@ -629,4 +703,195 @@ body {
   .main {
     padding: 1.5rem;
   }
+}
+
+/* ---------------- Login View ---------------- */
+.login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.login-card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 16px;
+  max-width: 680px;
+  width: 100%;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--teal-text);
+  margin-bottom: 1.5rem;
+}
+
+.login-brand i {
+  font-size: 24px;
+  color: var(--teal);
+}
+
+.login-card h2 {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 2rem;
+}
+
+.profile-select-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.profile-select-card {
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profile-select-card:hover {
+  background: var(--surface);
+  border-color: var(--teal);
+  box-shadow: 0 6px 16px rgba(15, 110, 86, 0.08);
+  transform: translateY(-2px);
+}
+
+.profile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-select-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.avatar-placeholder {
+  background: var(--border);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.access-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.badge-full {
+  background: var(--teal-bg);
+  color: var(--teal-text);
+  border: 0.5px solid rgba(8, 80, 65, 0.25);
+}
+
+.badge-restricted {
+  background: var(--coral-bg);
+  color: var(--coral-text);
+  border: 0.5px solid rgba(113, 43, 19, 0.25);
+}
+
+.profile-card-body h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+
+.profile-title {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.profile-desc {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* User Switcher Link */
+.user-switch-btn {
+  font-size: 11px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 4px;
+  display: inline-block;
+  transition: color 0.15s;
+}
+
+.user-switch-btn:hover {
+  color: var(--teal);
+}
+
+/* Warning banner for restricted users */
+.warning-banner {
+  background: var(--coral-bg);
+  border: 0.5px solid var(--coral-text);
+  color: var(--coral-text);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  margin-top: 1rem;
+  font-size: 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.warning-banner i {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.warning-banner p {
+  margin: 0;
+  font-weight: 500;
 }
