@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 # 🏥 HealthTech — Automated PHI/PII Redaction Pipeline for LLMs
 
 <div align="center">
